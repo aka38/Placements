@@ -1,4 +1,4 @@
-// Corrected solution....if you find any mistake please write to amanazad38@gmail.com
+// Incorrect solution...in process
 #include <bits/stdc++.h>
 using namespace std;
 #define mp         make_pair
