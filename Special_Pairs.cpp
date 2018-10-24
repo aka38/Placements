@@ -86,7 +86,7 @@ int main()
  ll ans =0;
   for(int i=2;i<=449;i++){
    
-   set< pair<int,int> > s; 
+   
     if(is_prime(i))
     {
 
