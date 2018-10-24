@@ -8,20 +8,14 @@ typedef long long ll;
 vector<int>  num;
 map<int,int> nap;
 void recur(int pos , int cnt , int f){
- 
- 
  if(cnt==0 && nap[0])
       return ;
- 
-  
  if(pos >num.size())
     return ;
  
-
-  nap[cnt]+=1;
+ nap[cnt]+=1;
   nap[cnt]%= mod;
 
- 
  int limit = 9;
  ll res = 0;
 
@@ -30,7 +24,6 @@ void recur(int pos , int cnt , int f){
  }
  
  for(int digit=0;digit<limit+1 ;digit++){
-
   int nf = f;
   int ncnt = cnt;
   if(f==0 && digit < limit) nf = 1;
