@@ -1,5 +1,4 @@
-//Found some mistake...in the process.
-
+// Corrected solution....if you find any mistake please write to amanazad38@gmail.com
 #include <bits/stdc++.h>
 using namespace std;
 #define mp         make_pair
@@ -10,15 +9,16 @@ typedef long long ll;
 vector<int>  num;
 map<int,int> nap;
 void recur(int pos , int cnt , int f){
+ 
+ 
  if(cnt==0 && nap[0])
       return ;
+ 
+  
  if(pos >num.size())
     return ;
  
- nap[cnt]+=1;
-  nap[cnt]%= mod;
-
- int limit = 9;
+  int limit = 9;
  ll res = 0;
 
  if(!f){
@@ -26,12 +26,17 @@ void recur(int pos , int cnt , int f){
  }
  
  for(int digit=0;digit<limit+1 ;digit++){
+
+  if(nap[0]&&digit==0)continue;
   int nf = f;
   int ncnt = cnt;
   if(f==0 && digit < limit) nf = 1;
   ncnt = cnt+ digit;
   recur(pos+1,ncnt,nf);
  }
+  nap[cnt]+=1;
+  nap[cnt]%= mod;
+  
   return ;
 
 }
@@ -42,8 +47,8 @@ void solve(string n){
    
    for(auto u : n)
     num.pb(u-'0');
-   
-   recur(0, 0, 0);
+
+ recur(0, 0, 0);
     
 } 
 
@@ -62,7 +67,12 @@ bool is_prime(int n) {
 int main() 
 {
 
-
+  #ifndef ONLINE_JUDGE
+  // for getting input from input.txt
+  freopen("input.txt", "r", stdin);
+  //for writing output to output.txt
+  freopen("output.txt", "w", stdout);
+   #endif
   ios_base::sync_with_stdio(0); cin.tie(0);
 
   string n;
@@ -72,6 +82,8 @@ int main()
 
 
   ll ans =0;
+  nap[0]-= (n.size());
+
   for(int i=2;i<=449;i++){
    
     if(is_prime(i))
